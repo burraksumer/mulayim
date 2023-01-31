@@ -1,4 +1,4 @@
-export const onRequestOptions = (PagesFunction = async () => {
+export const onRequestOptions: PagesFunction = async () => {
   return new Response(null, {
     status: 204,
     headers: {
@@ -8,11 +8,11 @@ export const onRequestOptions = (PagesFunction = async () => {
       "Access-Control-Max-Age": "86400",
     },
   });
-});
+};
 
-export const onRequest = (PagesFunction = async ({ next }) => {
+export const onRequest: PagesFunction = async ({ next }) => {
   const response = await next();
   response.headers.set("Access-Control-Allow-Origin", "*");
   response.headers.set("Access-Control-Max-Age", "86400");
   return response;
-});
+};
